@@ -1,0 +1,72 @@
+.pano-card {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 8px;
+}
+
+.pano-card a.card {
+  background-color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 320px;
+  transition: all 0.15s ease-in-out;
+  text-decoration: none;
+  border: none;
+}
+
+.pano-card a.card .img {
+  width: auto;
+  overflow: hidden;
+  position: relative;
+  height: 150px;
+  opacity: 0.9;
+  transition: all 0.15s ease-in-out;
+}
+
+.pano-card a.card:hover {
+  background-color: #ffffff;
+  box-shadow: 0 4px 4px #24242433;
+  transform: translateY(-3px);
+}
+.pano-card a.card:hover > .img {
+  opacity: 1;
+}
+
+.pano-card a.card .img .gradient {
+  height: 26px;
+  width: 320px;
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+}
+
+.pano-card a.card .info {
+  padding: 10px;
+  color: #2e2e2e;
+  display: flex;
+  flex-direction: column;
+  height: 90px;
+}
+
+.pano-card.small a.card .info {
+  height: 80px;
+}
+
+.pano-card a.card .info h6.title {
+  font-size: 16px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.pano-card a.card,
+.pano-card a.card:hover,
+.pano-card a.card:visited {
+  color: #252525;
+}
+
+.pano-card p {
+  margin-bottom: 4px;
+  align-self: flex-end;
+}

@@ -1,0 +1,40 @@
+.photo-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-item a {
+  background-color: #252525;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 230px;
+  height: 115px;
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+  position: relative;
+}
+
+.photo-item a .gradient {
+  background: linear-gradient(to bottom, #252525, #25252546);
+  width: 100%;
+  height: 115px;
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  color: #fafafa;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+  padding: 8px;
+}
+
+.photo-item a .gradient p {
+  padding-top: 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.photo-item a:hover .gradient {
+  font-size: large;
+  opacity: 1;
+}

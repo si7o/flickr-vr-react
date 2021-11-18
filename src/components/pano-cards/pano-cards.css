@@ -1,0 +1,9 @@
+#pano-cards {
+  margin-top: 16px;
+}
+
+#pano-cards .panos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

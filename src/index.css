@@ -1,0 +1,90 @@
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("./fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("./fonts/Roboto-Light.ttf") format("truetype");
+  font-weight: thin;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("./fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+body {
+  background-color: #fafafa;
+  color: #252525;
+  margin: 0;
+
+  font-size: 14px;
+  font-family: "Roboto";
+}
+
+a,
+a:visited {
+  color: #252525;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 34px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h4 {
+  font-size: 22px;
+}
+
+p {
+  margin: 2px 0;
+}
+
+input {
+  margin: 0;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+a:hover {
+  color: #ffcc00;
+  text-decoration: underline;
+}
+
+a.flickr {
+  background-color: #ffffff88;
+  border-radius: 2px;
+  color: #0063dc !important;
+  padding: 2px 4px;
+}
+
+a.flickr i {
+  color: #ff0084;
+  text-transform: lowercase;
+  font-style: normal;
+}
+
+a.flickr:hover {
+  color: #ff0084 !important;
+}
