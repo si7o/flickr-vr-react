@@ -1,8 +1,7 @@
-const API_URL = "http://vr.andeandaran.com/api";
+const API_URL = "https://vr.andeandaran.com/api";
 
 export const getHomePhotos = async () =>
-  fetch(`${API_URL}/flickr`, { method: "GET" })
-    .then((data) => data.json());
+  fetch(`${API_URL}/flickr`, { method: "GET" }).then((data) => data.json());
 
 export const getUserPhotos = async (username) =>
   fetch(`${API_URL}/flickr/photos/${username}`, {
