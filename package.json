@@ -1,5 +1,5 @@
 {
-  "homepage": ".",
+  "homepage": "https://si7o.github.io/flickr-vr-react/",
   "name": "flickr-vr-react",
   "version": "0.0.1",
   "description": "Flickr VR viewer for equirectangular panoramas",
