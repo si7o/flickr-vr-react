@@ -5,8 +5,7 @@
   right: 0px;
   padding: 2px 16px;
   width: calc(100vw - 200px);
-  min-height: 68px;
-  background: linear-gradient(to left, #2525259f, #25252500);
+  height: 68px;
   color: #fafafa;
   z-index: 1000;
   display: flex;

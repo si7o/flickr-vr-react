@@ -10,7 +10,7 @@ header {
 }
 
 header.photopage {
-  background: linear-gradient(to right, #252525, #25252500);
+  background: #00000081;
   opacity: 0.86;
 }
 
