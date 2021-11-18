@@ -1,0 +1,37 @@
+# This is a basic workflow that is manually triggered
+
+name: Publish to GH Pages
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+        # get package.json version and store it in an env variable  env.PACKAGE_VERSION
+      - uses: nyaa8/package-version@v1
+      - run: npm ci
+      
+      - name: Build Styleguide
+        run: npm run build
+        
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: dist
+          commit_message: "Publish latest. v${{ env.PACKAGE_VERSION }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+    
+              
