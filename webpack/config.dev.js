@@ -27,7 +27,7 @@ module.exports = (env) => ({
       favicon: "src/favicon.ico",
     }),
     new webpack.DefinePlugin({
-      "process.env.BASEPATH": env.basepath ?? "''",
+      "process.env.BASEPATH": JSON.stringify(env.basepath || ""),
     }),
   ],
   module: {
