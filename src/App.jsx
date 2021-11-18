@@ -17,7 +17,7 @@ export const LINKS = {
 const App = () => {
   return (
     <ReduxProvider store={store}>
-      <Router basename={process.env.BASEPATH}>
+      <Router basename={`/${process.env.BASEPATH}`}>
         <Header />
         <Switch>
           <Route exact path={LINKS.homepage} component={HomePage} />
