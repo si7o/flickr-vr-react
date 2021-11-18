@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const srcDir = path.resolve("src");
 process.env.NODE_ENV = "development";
 
-module.exports = {
+module.exports = (env) => ({
   mode: "production",
   target: "web",
   entry: "./src/index",
@@ -22,6 +22,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "src/index.html",
       favicon: "src/favicon.ico",
+    }),
+    new webpack.DefinePlugin({
+      "process.env.BASEPATH": env.basepath ?? "'/'",
     }),
   ],
   module: {
@@ -52,4 +55,4 @@ module.exports = {
       helpers: path.join(srcDir, "helpers"),
     },
   },
-};
+});
