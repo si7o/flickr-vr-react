@@ -1,4 +1,5 @@
 {
+  "homepage": ".",
   "name": "flickr-vr-react",
   "version": "0.0.1",
   "description": "Flickr VR viewer for equirectangular panoramas",
