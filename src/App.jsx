@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider as ReduxProvider } from "react-redux";
 import store from "./store";
 import Header from "components/header/Header";
