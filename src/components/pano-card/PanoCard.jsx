@@ -30,17 +30,22 @@ const PanoCard = (props) => {
         </div>
       </Link>
       {showFooter && (
-        <p className="footer">
-          by <Link to={userHref}>{username}</Link> on{" "}
-          <a
-            href={flickrPhotoHref}
-            target="_blank"
-            rel="noreferrer"
-            className="flickr"
-          >
-            flick<i>r</i>
-          </a>
-        </p>
+        <ul className="footer">
+          <li>
+            by <Link to={userHref}>{username}</Link>
+          </li>
+          <li>
+            on
+            <a
+              href={flickrPhotoHref}
+              target="_blank"
+              rel="noreferrer"
+              className="flickr"
+            >
+              flick<i>r</i>
+            </a>
+          </li>
+        </ul>
       )}
     </div>
   );

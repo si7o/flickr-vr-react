@@ -34,7 +34,6 @@ const PhotoPage = () => {
       ? state.photopage.urlHD
       : state.photopage.urlSD
   );
-  console.log(img);
   const title = useSelector((state) => state.photopage.title);
 
   const username = useSelector((state) => state.userpage.username);

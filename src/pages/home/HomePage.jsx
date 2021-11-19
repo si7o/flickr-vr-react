@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchLatestPhotos } from "./homePageSlice";
-import { PageLoader, PanoCards } from "components";
-import StartHere from "./components/start-here/StartHere";
+import { PageLoader, PanoCards, StartHere } from "components";
 
 const HomePage = () => {
   const dispatch = useDispatch();

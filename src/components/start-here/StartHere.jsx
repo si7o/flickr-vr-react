@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import "./start-here.css";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 import { getStartHereURL } from "helpers/urlHelper";
 
-const StartHere = () => {
+const StartHere = (props) => {
+  const { title, subtitle } = props;
   const history = useHistory();
 
   const [flickrInput, setFlickrInput] = useState("");
@@ -20,8 +22,8 @@ const StartHere = () => {
 
   return (
     <div id="start-here">
-      <h2>Watch flickr equirrectangular panoramas the right way.</h2>
-      <h3>Start here!</h3>
+      <h2>{title}</h2>
+      <h3>{subtitle}</h3>
       <p></p>
       <form onSubmit={handleSubmit} autoComplete="off">
         <label htmlFor="flickrInput">
@@ -42,6 +44,16 @@ const StartHere = () => {
       </form>
     </div>
   );
+};
+
+StartHere.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+};
+
+StartHere.defaultProps = {
+  title: "Watch flickr equirrectangular panoramas the right way.",
+  subtitle: "Start here!",
 };
 
 export default StartHere;

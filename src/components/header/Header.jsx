@@ -2,6 +2,8 @@ import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import Logo from "./Logo";
 import "./header.css";
+import { GithubIcon } from "components/icons";
+import { LINKS } from "../../App";
 
 const useIsPhotoPage = () => {
   const routeMatch = useRouteMatch({ path: "/photos/:pathAlias/:photoId" });
@@ -19,18 +21,21 @@ const Header = () => {
 
   return (
     <header className={isPhotopage ? "photopage" : ""}>
-      <Link to="/">
+      <Link to={LINKS.homepage}>
         <Logo />
       </Link>
       {isHomepage && (
-        <a
-          href="https://github.com/si7o/skybox"
-          referrerPolicy="no-referrer"
-          rel="noreferrer"
-          target="_blank"
-        >
-          github
-        </a>
+        <>
+          <Link to={LINKS.aboutPage}>About</Link>
+          <a
+            href="https://github.com/si7o/flickr-vr-react"
+            referrerPolicy="no-referrer"
+            rel="noreferrer"
+            target="_blank"
+          >
+            github <GithubIcon />
+          </a>
+        </>
       )}
     </header>
   );

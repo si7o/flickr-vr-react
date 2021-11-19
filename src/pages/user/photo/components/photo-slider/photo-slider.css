@@ -1,10 +1,12 @@
 #photo-slider {
   position: fixed;
-  bottom: -135px;
+  bottom: -134px;
   left: 0;
   width: 100vw;
   height: 170px;
   transition: 0.08s ease-in;
+  display: flex;
+  flex-direction: column;
   background: #252525b6;
 }
 
@@ -40,14 +42,32 @@
 }
 
 #photo-slider button.toggle:hover:before {
-  height: 35px;
+  height: 34px;
 }
 
 #photo-slider .item-list {
   display: flex;
   justify-content: space-between;
+  border-top: 3px solid #ffcc00;
   overflow-x: scroll;
   width: 100%;
   height: 133px;
-  background-color: #ffffff44;
+  background: #252525;
+}
+
+@media (max-width: 900px) {
+  #photo-slider {
+    background: transparent;
+    bottom: -133px;
+  }
+
+  #photo-slider button.toggle {
+    width: 160px !important;
+    margin: auto;
+    border: 0;
+    background: #252525b6;
+  }
+  #photo-slider button.toggle:hover {
+    color: #fafafa;
+  }
 }

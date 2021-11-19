@@ -42,6 +42,10 @@ module.exports = (env) => ({
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: "asset/resource",
       },
+      {
+        test: /\.(svg|png|jpe?g|gif)$/i,
+        type: "asset/inline",
+      },
     ],
   },
   resolve: {

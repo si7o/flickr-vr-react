@@ -38,3 +38,15 @@
   font-size: large;
   opacity: 1;
 }
+
+@media (max-width: 800px) {
+  .photo-item a .gradient {
+    background: linear-gradient(to bottom, #25252563, #25252500);
+    opacity: 1;
+  }
+  .photo-item a .gradient p {
+    padding-top: 12px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
