@@ -27,7 +27,7 @@ const PhotoHeader = (props) => {
           <span>
             view on{" "}
             <a
-              href={getFlickrPhotoUrl(pathAlias, photoId)}
+              href={getFlickrPhotoUrl(pathAlias, "", photoId)}
               target="_blank"
               rel="noreferrer"
               className="flickr"
