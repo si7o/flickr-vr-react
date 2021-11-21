@@ -17,10 +17,6 @@
   transition: all 0.2s cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 
-#photo-header.loading {
-  animation: 2s infinite blink;
-}
-
 #photo-header.hidden {
   top: -68px;
 }

@@ -1,22 +1,43 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { PanoViewer, PROJECTION_TYPE } from "@egjs/react-view360";
 import "./pano-viewer-ecjs.css";
 
 const PanoViewerEgjs = (props) => {
   const { image } = props;
+  const ref = useRef();
+  const [ready, setReady] = useState(false);
 
-  if (!image) {
-    return null;
-  }
+  const resizeCanvas = () => {
+    ref.current.updateViewportDimensions();
+  };
+
+  const handlePanoReady = () => {
+    setReady(true);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", resizeCanvas, false);
+  }, []);
+
+  useEffect(() => {
+    if (!image) {
+      setReady(false);
+    }
+  }, [image]);
 
   return (
-    <PanoViewer
-      id='panoviewer'
-      image={image}
-      projectionType={PROJECTION_TYPE.EQUIRECTANGULAR}
-      showPolePoint
-    />
+    <>
+      <PanoViewer
+        ref={ref}
+        onReady={handlePanoReady}
+        id="panoviewer"
+        image={image}
+        projectionType={PROJECTION_TYPE.EQUIRECTANGULAR}
+        showPolePoint
+      />
+      {!ready && <div className="loading"></div>}
+    </>
   );
 };
 

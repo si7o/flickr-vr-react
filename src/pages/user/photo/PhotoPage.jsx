@@ -8,18 +8,6 @@ import { PhotoHeader, PhotoSlider } from "./components";
 import "./photo-page.css";
 import { PanoViewerEgjs } from "../../../components";
 
-const resizeCanvas = () => {
-  console.log(window.innerWidth, window.innerHeight);
-};
-
-window.addEventListener(
-  "resize",
-  function () {
-    resizeCanvas();
-  },
-  false
-);
-
 const PhotoPage = () => {
   const { pathAlias, photoId } = useParams();
 
