@@ -18,10 +18,15 @@ body {
   font-family: "Roboto";
 }
 
-a,
-a:visited {
-  color: #252525;
+p {
+  margin: 2px 0;
 }
+
+/******************
+ *
+ * HEADINGS
+ *
+ ******************/
 
 h1,
 h2,
@@ -67,9 +72,11 @@ h4 {
   }
 }
 
-p {
-  margin: 2px 0;
-}
+/******************
+ *
+ * FORM
+ *
+ ******************/
 
 input {
   margin: 0;
@@ -78,6 +85,17 @@ input {
 
 button {
   cursor: pointer;
+}
+
+/******************
+ *
+ * LINKS
+ *
+ ******************/
+
+a,
+a:visited {
+  color: #252525;
 }
 
 a:hover {
@@ -100,4 +118,72 @@ a.flickr i {
 
 a.flickr:hover {
   color: #ff0084 !important;
+}
+
+/******************
+ *
+ * ICONS
+ *
+ ******************/
+
+.gg-chevron-o {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  scale: 1.7;
+  width: 23px;
+  height: 23px;
+  border: 2px solid;
+  background-color: #3b3b3b44;
+  border-radius: 100px;
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+.gg-chevron-o::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  transform: rotate(-45deg);
+  left: 5px;
+  top: 6px;
+  transition: all 0.1s ease;
+}
+.gg-chevron-o:hover {
+  transform: translateX(2px);
+  background-color: #fafafa44;
+}
+.gg-chevron-o:hover::after {
+  left: 6px;
+}
+.gg-chevron-o.up {
+  rotate: -90deg;
+}
+.gg-chevron-o.left {
+  rotate: 180deg;
+}
+.gg-chevron-o.down {
+  rotate: 90deg;
+}
+
+/******************
+ *
+ * TRANSITIONS
+ *
+ ******************/
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
 }

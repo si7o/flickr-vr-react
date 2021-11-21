@@ -1,30 +1,20 @@
 import React from "react";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import "./header.css";
 import { GithubIcon } from "components/icons";
 import { LINKS } from "../../App";
-
-const useIsPhotoPage = () => {
-  const routeMatch = useRouteMatch({ path: "/photos/:pathAlias/:photoId" });
-  return routeMatch?.params?.pathAlias && routeMatch?.params?.photoId;
-};
-
-const useIsHomepage = () => {
-  const routeMatch = useRouteMatch({ path: "/", exact: true });
-  return !!routeMatch;
-};
+import { useIsPhotoPage } from "../../sideEffects";
 
 const Header = () => {
   const isPhotopage = useIsPhotoPage();
-  const isHomepage = useIsHomepage();
 
   return (
     <header className={isPhotopage ? "photopage" : ""}>
       <Link to={LINKS.homepage}>
         <Logo />
       </Link>
-      {isHomepage && (
+      {!isPhotopage && (
         <>
           <Link to={LINKS.aboutPage}>About</Link>
           <a

@@ -1,17 +1,28 @@
 #photo-header {
-  position: absolute;
+  position: fixed;
   user-select: none;
   top: 0px;
   right: 0px;
   padding: 2px 16px;
-  width: calc(100vw - 90px);
+  padding-left: 95px;
+  width: 100vw;
   height: 68px;
   color: #fafafa;
-  z-index: 1000;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  background-color: #00000081;
+  transition: all 0.2s cubic-bezier(0.28, 0.84, 0.42, 1);
+}
+
+#photo-header.loading {
+  animation: 2s infinite blink;
+}
+
+#photo-header.hidden {
+  top: -68px;
 }
 
 #photo-header a,
@@ -43,4 +54,10 @@
   margin-left: 12px;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+#photo-header .header-controls {
+  position: absolute;
+  top: 90px;
+  right: 30px;
 }

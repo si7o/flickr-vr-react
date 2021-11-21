@@ -10,7 +10,8 @@ header {
 }
 
 header.photopage {
-  background: #00000081;
+  background: transparent;
+  width: 90px;
   opacity: 0.86;
 }
 

@@ -62,6 +62,7 @@ const PhotoPage = () => {
         username={username}
         pathAlias={pathAlias}
         photoId={photoId}
+        loading={!loaded}
       />
       <PanoViewerEgjs image={img} />
       <PhotoSlider
