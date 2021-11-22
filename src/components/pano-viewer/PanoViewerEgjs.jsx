@@ -43,6 +43,7 @@ const PanoViewerEgjs = (props) => {
         showPolePoint
         onReady={handlePanoReady}
         onError={handlePanoError}
+        fov={88}
       />
       {!ready && <div className="loading"></div>}
     </>
