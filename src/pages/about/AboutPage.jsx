@@ -1,5 +1,7 @@
 import { GithubIcon } from "components/icons";
+import { getUserUrl } from "helpers/urlHelper";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AboutPage = () => {
   return (
@@ -62,6 +64,13 @@ const AboutPage = () => {
             </a>
           </li>
         </ul>
+      </p>
+      <p>
+        And you can also check{" "}
+        <Link to={getUserUrl("sitoo")}>
+          my equirectangular panoramas from flickr
+        </Link>{" "}
+        ;-).
       </p>
     </section>
   );
