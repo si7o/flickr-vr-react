@@ -5,6 +5,7 @@ import "./pano-viewer-ecjs.css";
 
 const PanoViewerEgjs = (props) => {
   const { image } = props;
+
   const ref = useRef();
   const [ready, setReady] = useState(false);
 
@@ -14,6 +15,12 @@ const PanoViewerEgjs = (props) => {
 
   const handlePanoReady = () => {
     setReady(true);
+  };
+
+  const handlePanoError = (e) => {
+    if (image) {
+      window.alert(e.message);
+    }
   };
 
   useEffect(() => {
@@ -30,11 +37,12 @@ const PanoViewerEgjs = (props) => {
     <>
       <PanoViewer
         ref={ref}
-        onReady={handlePanoReady}
         id="panoviewer"
         image={image}
         projectionType={PROJECTION_TYPE.EQUIRECTANGULAR}
         showPolePoint
+        onReady={handlePanoReady}
+        onError={handlePanoError}
       />
       {!ready && <div className="loading"></div>}
     </>
@@ -45,4 +53,4 @@ PanoViewerEgjs.propTypes = {
   image: PropTypes.string,
 };
 
-export default PanoViewerEgjs;
+export default React.memo(PanoViewerEgjs);
