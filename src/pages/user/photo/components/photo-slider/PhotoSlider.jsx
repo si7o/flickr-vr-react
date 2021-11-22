@@ -23,28 +23,28 @@ const PhotoSlider = (props) => {
       <button onClick={handleToggleClick} className="toggle">
         {showGallery ? "Hide" : "More images"}
       </button>
-      <button
-        className={`gg-chevron-o left`}
-        onClick={handleScrollLeftClick}
-      ></button>
-      <div className="item-list" onClick={handleToggleClick} ref={sliderRef}>
-        {loaded ? (
-          photos.map((photo) => (
-            <PhotoItem
-              key={photo.id}
-              {...photo}
-              pathAlias={pathAlias}
-              isCurrent={photo.id === currentPhotoId}
-            />
-          ))
-        ) : (
-          <div>...loading</div>
-        )}
+      <div className="slider">
+        <button className={`left`} onClick={handleScrollLeftClick}>
+          <i className={`gg-chevron left`}></i>
+        </button>
+        <div className="item-list" onClick={handleToggleClick} ref={sliderRef}>
+          {loaded ? (
+            photos.map((photo) => (
+              <PhotoItem
+                key={photo.id}
+                {...photo}
+                pathAlias={pathAlias}
+                isCurrent={photo.id === currentPhotoId}
+              />
+            ))
+          ) : (
+            <div>...loading</div>
+          )}
+        </div>
+        <button onClick={handleScrollRightClick}>
+          <i className={`gg-chevron`}></i>
+        </button>
       </div>
-      <button
-        className={`gg-chevron-o`}
-        onClick={handleScrollRightClick}
-      ></button>
     </div>
   );
 };

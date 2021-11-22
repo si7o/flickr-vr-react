@@ -38,10 +38,9 @@ const PhotoHeader = (props) => {
         </p>
       </div>
       <div className="header-controls">
-        <i
-          className={`gg-chevron-o up ${showHeader ? "up" : "down"}`}
-          onClick={handleFullscreenClick}
-        ></i>
+        <button onClick={handleFullscreenClick}>
+          <i className={`gg-chevron up ${showHeader ? "up" : "down"}`}></i>
+        </button>
       </div>
     </div>
   );

@@ -126,53 +126,60 @@ a.flickr:hover {
  *
  ******************/
 
-.gg-chevron-o {
+.gg-chevron {
   box-sizing: border-box;
   position: relative;
   display: block;
-  scale: 1.7;
-  width: 23px;
-  height: 23px;
-  border: 2px solid;
-  background-color: #3b3b3b44;
-  border-radius: 100px;
+  width: 32px;
+  height: 32px;
   transition: all 0.1s ease;
   cursor: pointer;
 }
-.gg-chevron-o::after {
+.gg-chevron::after {
   content: "";
   display: block;
-  box-sizing: border-box;
   position: absolute;
-  width: 7px;
-  height: 7px;
-  border-bottom: 2px solid;
-  border-right: 2px solid;
+  width: 16px;
+  height: 16px;
+  border-bottom: 4px solid;
+  border-right: 4px solid;
   transform: rotate(-45deg);
-  left: 5px;
+  left: 0px;
   top: 6px;
   transition: all 0.1s ease;
 }
-.gg-chevron-o:hover {
-  transform: translateX(2px);
-  background-color: #fafafa44;
+.gg-chevron::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-bottom: 4px solid #00000044;
+  border-right: 4px solid #00000044;
+  transform: rotate(-45deg);
+  left: -3px;
+  top: 6px;
+  transition: all 0.1s ease;
 }
-.gg-chevron-o:hover::after {
-  left: 6px;
+.gg-chevron:hover::after {
+  left: 4px;
 }
-.gg-chevron-o.up {
-  rotate: -90deg;
+.gg-chevron:hover::before {
+  left: 1px;
 }
-.gg-chevron-o.left {
-  rotate: 180deg;
+.gg-chevron.up {
+  transform: rotate(-90deg);
 }
-.gg-chevron-o.down {
-  rotate: 90deg;
+.gg-chevron.left {
+  transform: rotate(180deg);
+}
+.gg-chevron.down {
+  transform: rotate(90deg);
 }
 
 /******************
  *
- * PLACEHOLDER LOADER
+ * SKELETON LOADER
  *
  ******************/
 .loading::before {

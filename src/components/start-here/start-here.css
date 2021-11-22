@@ -54,6 +54,7 @@
   font-weight: bold;
   background-color: #fafafa44;
   transition: all 0.82s ease;
+  padding: 0 15px;
   color: #fafafadd;
   text-transform: uppercase;
 }
