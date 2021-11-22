@@ -6,6 +6,7 @@ import {
   fetchUserPhoto,
   selectImageUrl,
   selectIsLoaded,
+  toggleQuality,
 } from "./photoPageSlice";
 import { fetchUserPhotos } from "../userPageSlice";
 import { PhotoHeader, PhotoSlider } from "./components";
@@ -20,17 +21,22 @@ const PhotoPage = () => {
   const loadedPhotoData = useSelector(selectIsLoaded);
   const imageUrl = useSelector(selectImageUrl);
   const title = useSelector((state) => state.photopage.title);
+  const quality = useSelector((state) => state.photopage.quality);
+
   const username = useSelector((state) => state.userpage.username);
   const userPhotos = useSelector((state) => state.userpage.photos);
   const shouldReloadData = useSelector(
     (state) => state.userpage.pathAlias !== pathAlias
   );
-
   const loadedUserData = useSelector((state) =>
     ["success", "error"].includes(state.userpage.status)
   );
 
   const loaded = loadedPhotoData && loadedUserData;
+
+  const handleQualityChange = () => {
+    dispatch(toggleQuality());
+  };
 
   useEffect(() => {
     dispatch(fetchUserPhoto({ pathAlias, photoId }));
@@ -57,6 +63,8 @@ const PhotoPage = () => {
         photos={userPhotos}
         pathAlias={pathAlias}
         currentPhotoId={photoId}
+        quality={quality}
+        onQualityChange={handleQualityChange}
       />
       <PageLoader show={!loaded} />
     </section>

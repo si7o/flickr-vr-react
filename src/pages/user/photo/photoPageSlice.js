@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getUserPhoto } from "services/skyboxService";
 
-export const QUALITY = { HD: "HD", SD: "SD" };
+export const QUALITY = { SD: "SD", HD: "HD" };
 
 export const fetchUserPhoto = createAsyncThunk(
   "photopage/fetchUserPhoto",
@@ -34,11 +34,8 @@ export const photoPageSlice = createSlice({
     setStatus: (state, action) => {
       state.status = action.payload;
     },
-    setSDQuality: (state) => {
-      state.quality = QUALITY.SD;
-    },
-    setHDQuality: (state) => {
-      state.quality = QUALITY.HD;
+    toggleQuality: (state) => {
+      state.quality = state.quality === QUALITY.SD ? QUALITY.HD : QUALITY.SD;
     },
   },
   extraReducers(builder) {
@@ -105,5 +102,6 @@ export const selectImageUrl = (state) =>
 export const selectIsLoaded = (state) =>
   ["success", "error"].includes(state.photopage.status);
 
-export const { setPathAlias, setStatus, setQuality } = photoPageSlice.actions;
+export const { setPathAlias, setStatus, toggleQuality } =
+  photoPageSlice.actions;
 export default photoPageSlice.reducer;

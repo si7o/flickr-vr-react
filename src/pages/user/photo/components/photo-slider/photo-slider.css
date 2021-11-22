@@ -7,7 +7,7 @@
   transition: 0.08s ease-in;
   display: flex;
   flex-direction: column;
-  background: #252525b6;
+  background: transparent;
 }
 
 #photo-slider.show {
@@ -15,17 +15,20 @@
 }
 
 #photo-slider button.toggle {
-  width: 100vw;
-  height: 35px;
+  width: 140px !important;
+  border-radius: 2px 2px 0 0;
+  margin: auto;
+  border: 0;
+  background: #252525b6;
+  height: 34px;
   color: #fafafa;
   border: none;
-  background: transparent;
   position: relative;
+  font-weight: bold;
 }
 #photo-slider button.toggle:hover {
   color: #252525;
 }
-
 #photo-slider button.toggle:before {
   content: "";
   position: absolute;
@@ -81,19 +84,31 @@
   background: #252525;
 }
 
-@media (max-width: 900px) {
-  #photo-slider {
-    background: transparent;
-    bottom: -133px;
-  }
+#photo-slider button.qualityToggle {
+  display: flex;
+  flex-direction: row;
+  display: none; /* hide this for now*/
+  margin-right: 20px;
+  height: 34px;
+  width: 34px;
+  overflow: hidden;
+  padding: 0;
+  background: #252525b6;
+}
+#photo-slider button.qualityToggle i {
+  line-height: 34px;
+  background-color: transparent;
+  height: 34px;
+  font-style: normal;
+  color: #fafafa77;
+}
 
-  #photo-slider button.toggle {
-    width: 140px !important;
-    border-radius: 1px 1px 0 0;
-    margin: auto;
-    border: 0;
-    background: #252525b6;
-  }
+#photo-slider button.qualityToggle i.selected {
+  color: #fafafadd;
+  font-weight: bold;
+}
+
+@media (max-width: 900px) {
   #photo-slider button.toggle:hover {
     color: #fafafa;
   }

@@ -2,9 +2,17 @@ import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
 import PhotoItem from "./PhotoItem";
 import "./photo-slider.css";
+import { QUALITY } from "../../photoPageSlice";
 
 const PhotoSlider = (props) => {
-  const { loaded, currentPhotoId, photos, pathAlias } = props;
+  const {
+    loaded,
+    currentPhotoId,
+    photos,
+    pathAlias,
+    quality,
+    onQualityChange,
+  } = props;
 
   const [showGallery, setShowGallery] = useState(false);
   const sliderRef = useRef(null);
@@ -17,11 +25,15 @@ const PhotoSlider = (props) => {
   const handleScrollRightClick = () => {
     sliderRef.current.scrollLeft += window.innerWidth / 2;
   };
+  const handleQualityToggle = () => onQualityChange();
 
   return (
     <div id="photo-slider" className={showGallery ? "show" : ""}>
       <button onClick={handleToggleClick} className="toggle">
         {showGallery ? "Hide" : "More images"}
+      </button>
+      <button className="qualityToggle" onClick={handleQualityToggle}>
+        <i className={quality === QUALITY.HD ? "selected" : ""}>4K</i>
       </button>
       <div className="slider">
         <button className={`left`} onClick={handleScrollLeftClick}>
@@ -54,6 +66,8 @@ PhotoSlider.propTypes = {
   pathAlias: PropTypes.string,
   loaded: PropTypes.bool,
   photos: PropTypes.array,
+  quality: PropTypes.string,
+  onQualityChange: PropTypes.func,
 };
 
 PhotoSlider.defaultProps = {
