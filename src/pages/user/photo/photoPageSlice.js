@@ -18,12 +18,11 @@ export const photoPageSlice = createSlice({
     error: null,
     thumbnail: "",
     username: "",
-    can_load: false,
-    photo_id: "",
+    canLoad: false,
+    photoId: "",
     title: "",
     desc: "",
     url: "",
-    self_url: "",
     urlHD: "",
     urlSD: "",
     quality: QUALITY.HD,
@@ -35,8 +34,11 @@ export const photoPageSlice = createSlice({
     setStatus: (state, action) => {
       state.status = action.payload;
     },
-    setQuality: (state, action) => {
-      state.quality = action.payload;
+    setSDQuality: (state) => {
+      state.quality = QUALITY.SD;
+    },
+    setHDQuality: (state) => {
+      state.quality = QUALITY.HD;
     },
   },
   extraReducers(builder) {
@@ -44,17 +46,15 @@ export const photoPageSlice = createSlice({
       .addCase(fetchUserPhoto.pending, (state) => {
         state.status = "pending";
         state.error = null;
-        state.photo = null;
         state.thumbnail = "";
         state.username = "";
-        state.can_load = false;
-        state.photo_id = "";
+        state.canLoad = "";
+        state.photoId = "";
         state.title = "";
         state.desc = "";
         state.url = "";
-        state.self_url = "";
-        state.urlHD = "";
         state.urlSD = "";
+        state.urlHD = "";
       })
       .addCase(fetchUserPhoto.fulfilled, (state, action) => {
         const {
@@ -72,6 +72,10 @@ export const photoPageSlice = createSlice({
 
         if (equirectangular === "false") {
           throw "The image you are trying to load is not equirectangular.";
+        }
+
+        if (!canLoad) {
+          throw "The image cant be loaded, sorry.";
         }
 
         state.status = "success";
@@ -93,6 +97,13 @@ export const photoPageSlice = createSlice({
   },
 });
 
-export const { setPathAlias, setStatus, setQuality } = photoPageSlice.actions;
+export const selectImageUrl = (state) =>
+  state.photopage.quality === QUALITY.HD
+    ? state.photopage.urlHD
+    : state.photopage.urlSD;
 
+export const selectIsLoaded = (state) =>
+  ["success", "error"].includes(state.photopage.status);
+
+export const { setPathAlias, setStatus, setQuality } = photoPageSlice.actions;
 export default photoPageSlice.reducer;
