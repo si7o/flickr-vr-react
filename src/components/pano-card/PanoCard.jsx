@@ -22,7 +22,7 @@ const PanoCard = (props) => {
     <div id={divId} className={`pano-card ${small ? "small" : ""}`}>
       <Link to={photoHref} className="card">
         <div className="img">
-          <img src={thumbnail} />
+          <img src={thumbnail} loading="lazy" alt={title} />
           <div className="gradient"></div>
         </div>
         <div className="info">

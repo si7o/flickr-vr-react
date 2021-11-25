@@ -13,7 +13,7 @@ const PhotoItem = (props) => {
   return (
     <div id={divId} className={`photo-item ${small ? "small" : ""}`}>
       <Link to={photoHref} className="clickable">
-        <img src={thumbnail} />
+        <img src={thumbnail} loading="lazy" alt={title} />
         <div className="gradient">
           <p>{title}</p>
         </div>
