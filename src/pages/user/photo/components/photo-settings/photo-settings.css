@@ -1,0 +1,70 @@
+#photo-settings {
+  position: fixed;
+  right: 25px;
+  width: 80px;
+  height: 37px;
+  transition: all 0.1s ease-in;
+  background: #00000081;
+  z-index: 10;
+  bottom: -44px;
+}
+
+#photo-settings.open {
+  bottom: 0;
+}
+
+#photo-settings.show {
+  bottom: 0;
+}
+
+#photo-settings button {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#photo-settings button.toggle {
+  width: 43px;
+  height: 43px;
+  border: 0;
+  background: transparent;
+  color: #fafafa;
+  border: none;
+  position: absolute;
+  font-weight: bold;
+  top: -43px;
+  right: 0;
+}
+#photo-settings button.toggle > svg {
+  transition: all 0.2s ease-in-out;
+}
+#photo-settings button.toggle:hover > svg {
+  transform: rotate(90deg);
+}
+
+#photo-settings .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#photo-settings .content button {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  font-weight: bold;
+  overflow: hidden;
+  padding: 0;
+  background: transparent;
+  color: #fafafa44;
+  border-bottom: 5px solid #fafafa44;
+}
+
+#photo-settings .content button.selected {
+  color: #fafafadd;
+  border-color: #fafafadd;
+}

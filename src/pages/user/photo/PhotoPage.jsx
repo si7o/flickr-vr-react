@@ -6,12 +6,12 @@ import {
   fetchUserPhoto,
   selectImageUrl,
   selectIsLoaded,
-  toggleQuality,
 } from "./photoPageSlice";
 import { fetchUserPhotos } from "../userPageSlice";
 import { PhotoHeader, PhotoSlider } from "./components";
 import "./photo-page.css";
 import { PanoViewerEgjs } from "components";
+import PhotoSettings from "./components/photo-settings/PhotoSettings";
 
 const PhotoPage = () => {
   const { pathAlias, photoId } = useParams();
@@ -21,7 +21,6 @@ const PhotoPage = () => {
   const loadedPhotoData = useSelector(selectIsLoaded);
   const imageUrl = useSelector(selectImageUrl);
   const title = useSelector((state) => state.photopage.title);
-  const quality = useSelector((state) => state.photopage.quality);
 
   const username = useSelector((state) => state.userpage.username);
   const userPhotos = useSelector((state) => state.userpage.photos);
@@ -33,10 +32,6 @@ const PhotoPage = () => {
   );
 
   const loaded = loadedPhotoData && loadedUserData;
-
-  const handleQualityChange = () => {
-    dispatch(toggleQuality());
-  };
 
   useEffect(() => {
     dispatch(fetchUserPhoto({ pathAlias, photoId }));
@@ -63,9 +58,8 @@ const PhotoPage = () => {
         photos={userPhotos}
         pathAlias={pathAlias}
         currentPhotoId={photoId}
-        quality={quality}
-        onQualityChange={handleQualityChange}
       />
+      <PhotoSettings />
       <PageLoader show={!loaded} />
     </section>
   );
