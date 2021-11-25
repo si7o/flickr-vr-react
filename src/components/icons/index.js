@@ -1,3 +1,4 @@
 import GithubIcon from "./GithubIcon";
+import SettingsIcon from "./SettingsIcon";
 
-export { GithubIcon };
+export { GithubIcon, SettingsIcon };
