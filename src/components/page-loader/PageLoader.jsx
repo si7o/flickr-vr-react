@@ -4,7 +4,11 @@ import "./page-loader.css";
 
 const PageLoader = ({ show }) => {
   return (
-    <div id="page-loader" className={show ? "show" : ""}>
+    <div
+      id="page-loader"
+      className={show ? "show" : ""}
+      data-testid="pageloader"
+    >
       <div className="lds-ripple">
         <div></div>
         <div></div>
