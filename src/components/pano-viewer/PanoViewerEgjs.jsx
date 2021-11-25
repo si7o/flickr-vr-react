@@ -10,7 +10,7 @@ const PanoViewerEgjs = (props) => {
   const [ready, setReady] = useState(false);
 
   const resizeCanvas = () => {
-    ref.current.updateViewportDimensions();
+    ref?.current?.updateViewportDimensions();
   };
 
   const handlePanoReady = () => {
