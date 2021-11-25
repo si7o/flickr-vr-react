@@ -21,7 +21,7 @@ const PhotoHeader = (props) => {
       <div className="content">
         <h4>{title || "Loading Panorama"}</h4>
         <p>
-          <span>
+          <span title={`View more panoramas uploaded by ${username}`}>
             by <Link to={getUserUrl(pathAlias)}>{username}.</Link>
           </span>
           <span>
@@ -31,6 +31,7 @@ const PhotoHeader = (props) => {
               target="_blank"
               rel="noreferrer"
               className="flickr"
+              title={`Go to ${username} flickr account`}
             >
               flick<i>r</i>
             </a>
