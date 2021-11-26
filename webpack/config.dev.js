@@ -60,6 +60,7 @@ module.exports = (env) => ({
       services: path.join(srcDir, "services"),
       pages: path.join(srcDir, "pages"),
       helpers: path.join(srcDir, "helpers"),
+      utils: path.join(srcDir, "utils"),
     },
   },
 });
