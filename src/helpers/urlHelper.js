@@ -1,5 +1,5 @@
-const FLICKR_URL = "https://www.flickr.com";
-const DEFAULT_URL = "#";
+export const FLICKR_URL = "https://www.flickr.com";
+export const DEFAULT_URL = "#";
 
 /**
  * Builds Flickr User URL
@@ -62,16 +62,21 @@ export const getUserPhotoUrl = (username, userId, photoId) =>
 export const extractURLParams = (value) => {
   const urlParams = { pathAlias: "", photoId: "" };
 
-  const photoPageMatch = value.match(/flickr.com\/photos\/([\w-@]+)\/([0-9]+)/);
-  const userPageMatch = value.match(/flickr.com\/photos\/([\w-@]+)/);
+  const hasNoSpaces = /^\S*$/.test(value.trim());
+  const photoPageMatch =
+    hasNoSpaces && value.match(/flickr.com\/photos\/([\w@]+)\/([0-9]+)/);
+  const userPageMatch =
+    hasNoSpaces && value.match(/flickr.com\/photos\/([\w@]+)/);
+  const validUsername = hasNoSpaces && /^[a-z0-9@]+$/gi.test(value.trim());
+
   // check if its a valid URL
   if (photoPageMatch) {
     urlParams.pathAlias = photoPageMatch[1].toLowerCase();
     urlParams.photoId = photoPageMatch[2].toLowerCase();
   } else if (userPageMatch) {
     urlParams.pathAlias = userPageMatch[1].toLowerCase();
-  } else {
-    urlParams.pathAlias = value.toLowerCase();
+  } else if (validUsername) {
+    urlParams.pathAlias = value.trim().toLowerCase();
   }
 
   return urlParams;
