@@ -19,7 +19,11 @@ const PhotoSlider = (props) => {
   };
 
   return (
-    <div id="photo-slider" className={showGallery ? "show" : ""}>
+    <div
+      id="photo-slider"
+      className={showGallery ? "show" : ""}
+      data-testid="photo-slider"
+    >
       <button onClick={handleToggleClick} className="toggle">
         {showGallery ? "Hide" : "More images"}
       </button>

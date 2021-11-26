@@ -28,12 +28,6 @@ export const photoPageSlice = createSlice({
     quality: QUALITY.HD,
   },
   reducers: {
-    setPathAlias: (state, action) => {
-      state.pathalias = action.payload;
-    },
-    setStatus: (state, action) => {
-      state.status = action.payload;
-    },
     toggleQuality: (state) => {
       state.quality = state.quality === QUALITY.SD ? QUALITY.HD : QUALITY.SD;
     },
@@ -102,6 +96,6 @@ export const selectImageUrl = (state) =>
 export const selectIsLoaded = (state) =>
   ["success", "error"].includes(state.photopage.status);
 
-export const { setPathAlias, setStatus, toggleQuality } =
-  photoPageSlice.actions;
+export const { toggleQuality } = photoPageSlice.actions;
+
 export default photoPageSlice.reducer;
