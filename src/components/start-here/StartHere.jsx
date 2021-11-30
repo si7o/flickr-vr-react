@@ -24,8 +24,12 @@ const StartHere = (props) => {
     <div id="start-here">
       <h2>{title}</h2>
       <h3>{subtitle}</h3>
-      <p></p>
-      <form onSubmit={handleSubmit} autoComplete="off">
+      <form
+        name="start-here-form"
+        id="start-here-form"
+        onSubmit={handleSubmit}
+        autoComplete="off"
+      >
         <label htmlFor="flickrInput">
           Enter your Flickr username or the URL to your flickr equirectangular
           panorama
