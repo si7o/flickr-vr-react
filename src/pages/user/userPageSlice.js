@@ -25,7 +25,7 @@ export const userPageSlice = createSlice({
   },
   reducers: {
     setPathAlias: (state, action) => {
-      state.pathalias = action.payload;
+      state.pathAlias = action.payload;
     },
   },
   extraReducers(builder) {
@@ -42,10 +42,8 @@ export const userPageSlice = createSlice({
         state.photos = [];
       })
       .addCase(fetchUserPhotos.fulfilled, (state, action) => {
-        const {
-          username,
-          page, pages, perpage, total, photos
-        } = action.payload;
+        const { username, page, pages, perpage, total, photos } =
+          action.payload;
 
         state.status = "success";
         state.lastUpdated = Date.now();
