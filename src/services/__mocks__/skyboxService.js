@@ -1,10 +1,10 @@
 // Default manual mocks for skyboxService methods
 
-export const getHomePhotos = jest.fn(async () => ({
+export const mockedHomePhotosData = {
   page: 1,
   pages: 889,
   perpage: 50,
-  total: 44410,
+  total: 2,
   photos: [
     {
       id: "51704730656",
@@ -25,16 +25,17 @@ export const getHomePhotos = jest.fn(async () => ({
       pathAlias: "jdurston2009",
     },
   ],
-}));
+};
+export const getHomePhotos = jest.fn(async () => mockedHomePhotosData);
 
-export const getUserPhotos = jest.fn(async () => ({
+export const mockedUserPhotosData = {
   username: "Sitoo",
   owner: "7470842@N04",
   pathAlias: "sitoo",
   page: 1,
   pages: 1,
   perpage: 100,
-  total: 64,
+  total: 2,
   photos: [
     {
       id: "51308196665",
@@ -48,7 +49,8 @@ export const getUserPhotos = jest.fn(async () => ({
       thumbnail: "/65535/50231114598_6c56889991_n.jpg",
     },
   ],
-}));
+};
+export const getUserPhotos = jest.fn(async () => mockedUserPhotosData);
 
 export const getUserPhoto = jest.fn(async () => ({
   thumbnail: "/65535/50231114598_6c56889991_m.jpg",
